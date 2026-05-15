@@ -18,13 +18,14 @@ export const eventController = async (req,res) => {
             })
         }
 
+        console.log(data)
+
         const eventData = extractRawData(data)
 
         const timelineText = eventData.map((commit) => `
             [${commit.date}]
             ${commit.message}
         `)
-        .join("\n")
         
         res.status(200).json(timelineText)
 
